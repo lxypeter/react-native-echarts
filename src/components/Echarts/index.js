@@ -28,6 +28,7 @@ export default class App extends Component {
             height: this.props.height || 400,
           }}
           source={source}
+          scalesPageToFit={Platform.OS === 'android' ? true : false}
         />
       </View>
     );
