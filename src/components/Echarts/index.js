@@ -13,20 +13,25 @@ export default class App extends Component {
 
   render() {
     let source;
+    const { width } = this.props.width;
     if (__DEV__) {
       source = require('./tpl.html');
     } else {
       source = Platform.OS === 'ios' ? require('./tpl.html') : { uri: 'file:///android_asset/tpl.html' };
     }
+    const containerStyle = { flex: 1, backgroundColor: '#6c6c6c', height: this.props.height || 400 };
+    const webViewStyle = { flex: 1, height: this.props.height || 400 }
+    if (width) {
+      containerStyle.width = width;
+      webViewStyle.width = width;
+    }
     return (
-      <View style={{flex: 1, height: this.props.height || 400,}}>
+      <View style={containerStyle}>
         <WebView
           ref="chart"
           scrollEnabled = {false}
           injectedJavaScript = {renderChart(this.props)}
-          style={{
-            height: this.props.height || 400,
-          }}
+          style={webViewStyle}
           source={source}
           scalesPageToFit={Platform.OS === 'android' ? true : false}
         />
