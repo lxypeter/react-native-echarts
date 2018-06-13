@@ -13,7 +13,7 @@ export default class App extends Component {
 
   render() {
     let source;
-    const { width } = this.props.width;
+    const { width } = this.props;
     if (__DEV__) {
       source = require('./tpl.html');
     } else {
