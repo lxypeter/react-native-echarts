@@ -19,7 +19,7 @@ export default class App extends Component {
     } else {
       source = Platform.OS === 'ios' ? require('./tpl.html') : { uri: 'file:///android_asset/tpl.html' };
     }
-    const containerStyle = { flex: 1, backgroundColor: '#6c6c6c', height: this.props.height || 400 };
+    const containerStyle = { flex: 1, height: this.props.height || 400 };
     const webViewStyle = { flex: 1, height: this.props.height || 400 }
     if (width) {
       containerStyle.width = width;
