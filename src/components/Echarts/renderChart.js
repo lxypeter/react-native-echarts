@@ -8,7 +8,6 @@ export default function renderChart(props) {
   if (width) {
     mainWidth = `document.getElementById('main').style.width = "${width}px";`;
   }
-  console.log(props.option);
   return `
     document.getElementById('main').style.height = "${height}px";
     ${mainWidth}
